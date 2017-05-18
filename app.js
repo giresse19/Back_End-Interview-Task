@@ -11,6 +11,7 @@ var connection = mysql.createConnection({
  app.get("/api/get/:name", function (req, res) {
     // find count of users in db
     var orgName = req.params.name; //@TODO: sanitze orgName before using it in sql query
+    console.log(orgName);
     var limit = 100;
     var offset = 0; //@TODO: get this offset from the request
     var sQuery = `
@@ -40,4 +41,34 @@ var connection = mysql.createConnection({
     });
  
 });
+
+app.post("/api/create", function (req, res) {
+    var body = '';
+    req.on('data', function (data) {
+        body += data;
+        // If someone is trying to nuke RAM, nuke the request
+        // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+        if (body.length > 1e6) {
+            req.connection.destroy();
+        }
+    });
+    req.on('end', function () {
+        process_request(body);
+    });
+   
+    function process_request(body) {
+        // Continue with parsing json string in body and inserting organisation
+        // json string is stored in the body variable
+        var org = JSON.parse(body);
+        console.log(org);
+        res.end(body);
+    }
+   
+});
+
+
+app.listen(8080, function () {
+    console.log("Server Running");
+});
+
 
