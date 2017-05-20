@@ -9,7 +9,10 @@
   "author": "GIRESSE ASHU-BOB",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "express-sanitizer": "^1.0.2",
     "mysql": "^2.13.0"
+    
   }
 }
