@@ -42,30 +42,3 @@
  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
  
   
- var body= {
-        "org_name": "Paradise Island",
-        "daughters": [{
-            "org_name": "Banana tree",
-            "daughters": [{
-                "org_name": "Yellow Banana"
-            }, {
-                "org_name": "Brown Banana"
-            }, {
-                "org_name": "Black Banana"
-            }]
-        }, {
-            "org_name": "Big banana tree",
-            "daughters": [{
-                "org_name": "Yellow Banana"
-            }, {
-                "org_name": "Brown Banana"
-            }, {
-                "org_name": "Green Banana"
-            }, {
-                "org_name": "Black Banana",
-                "daughters": [{
-                    "org_name": "Phoneutria Spider"
-                }]
-            }]
-        }]
-    };

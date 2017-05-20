@@ -11,6 +11,7 @@ var connection = mysql.createConnection({
 });
 app.use(bodyParser.json());
 app.use(expressSanitizer());
+
 app.get("/api/get/:name/:offset*?", function(req, res) {
     // find count of users in db
     var orgName = req.sanitize(req.params.name); // sanitizing orgName before using it in sql query
@@ -45,7 +46,6 @@ app.get("/api/get/:name/:offset*?", function(req, res) {
 
 app.post("/api/create", function(req, res) {
     var body = '';
-
     req.on('data', function(data) {
         body += data;
         // If someone is trying to nuke RAM, nuke the request
