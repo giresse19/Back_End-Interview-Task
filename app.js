@@ -6,7 +6,7 @@ var mysql = require("mysql");
 
 var connection = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
+    user: 'giresse19',
     database: 'be_task'
 });
 app.use(bodyParser.json());
